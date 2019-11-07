@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.status === 200) {
+                    console.log("Success");
+                } else {
+                    window.alert("Some error occurred");
+                }
+            }
+        }
+        xhr.open("POST", "http://@localhost:8080/check/greet", true);
+        xhr.setRequestHeader("Authorization", "Basic " + btoa("user:user"));
+        xhr.send();
+    </script>
+</body>
+
+</html>
